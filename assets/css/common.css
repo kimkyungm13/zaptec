@@ -1,0 +1,79 @@
+.inner {
+    padding: 0 88px
+}
+
+.hidden {
+    overflow: hidden;
+}
+
+.blind {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    width: 1px;
+    height: 1px;
+}
+
+span.tag {
+    border-radius: 100px;
+    padding: 10px;
+    font-size: 12px;
+    color: rgb(118, 117, 114);
+    background: #f6f6f6;
+    display: block;
+}
+
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    /* background-color: transparent; */
+    background: #000;
+    /* 초기에는 투명한 배경색을 가짐 */
+    /* opacity: 0; */
+    /* visibility: hidden; */
+}
+
+body {
+    transition: background 0.5s;
+}
+
+body.beige {
+    background: #efeff1;
+}
+
+body.black {
+    background: #000;
+}
+
+.hover-border:hover:after {
+    color: #222;
+    width: 100%;
+}
+
+.hover-border {
+    transition-duration: .3s;
+    transition-property: all;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+    transition-duration: .15s;
+}
+
+.hover-border:after {
+    transition-property: width;
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: block;
+    height: 1px;
+    width: 0;
+    background-color: currentColor;
+    transition-duration: .3s;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+}
