@@ -139,8 +139,8 @@ $(function () {
             idx = Math.round(self.progress * (totalLangth - 1));
 
 
-            currItem = $('.sc-charging .charging-group.show');
-            newItem = $('.sc-charging .charging-group').eq(idx);
+            currItem = $('.sc-charging .charging-group .charging-wrap.show');
+            newItem = $('.sc-charging .charging-group .charging-wrap').eq(idx);
 
             currItem2 = $('.sc-charging .wrap .list li.on');
             newItem2 = $('.sc-charging .wrap .list li').eq(idx);
@@ -148,31 +148,34 @@ $(function () {
             gsap.to('.sc-charging .wrap .head .curr', { yPercent: 100 * idx })
 
 
+            if (currItem) {
+                gsap.to(currItem, {
+                    autoAlpha: 0,
+                    transform: 'translateY(-50%)'
+                });
+                gsap.to(newItem, {
+                    autoAlpha: 1,
+                    // transform: 'translateY(0%)'
 
-            // if (currItem.length) {
-            //     gsap.to(currItem, {
-            //         yPercent: -50, // 애니메이션을 위해 이동
-            //         onComplete: () => {
-            //             currItem.removeClass('show'); // 애니메이션 완료 후 클래스 제거
-            //         }
-            //     });
-            // }
-
-
-
-            // // if (newItem) { newItem.addClass("show"); }
-            // if (newItem) {
-            //     gsap.to(newItem, {
-            //         transform: 'translateY(0%)',
-            //         onComplete: () => {
-            //             newItem.addClass('show'); // 애니메이션 완료 후 클래스 제거
-            //         }
-            //     });
-            // }
+                });
+                currItem.removeClass('show');
+                newItem.addClass('trans');
 
 
-            if (currItem) { currItem.removeClass('show'); }
-            if (newItem) { newItem.addClass("show"); }
+            }
+            if (newItem) {
+                newItem.addClass("show");
+                // newItemTl = gsap.timeline();
+                // gsap.to(currItem, {
+                //     autoAlpha: 0,
+                //     transform: 'translateY(-50%)'
+                // });
+                // gsap.to(newItem, {
+                //     autoAlpha: 1,
+                //     // transform: 'translateY(-150%)'
+                // })
+
+            }
             if (currItem2) { currItem2.removeClass('on'); }
             if (newItem2) { newItem2.addClass("on"); }
 
