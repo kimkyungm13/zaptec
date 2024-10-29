@@ -27,7 +27,11 @@ $(function () {
 
         }
     })
+    $('#nav .title').hover(function (e) {
+        e.preventDefault();
+        $(this).find('.category-wrap').toggleClass('on').stop().slideToggle()
 
+    });
     /** 메뉴 스크롤 */
     let lastScroll = 0;
     $(window).scroll(function () {
@@ -143,9 +147,32 @@ $(function () {
 
             gsap.to('.sc-charging .wrap .head .curr', { yPercent: 100 * idx })
 
+
+
+            // if (currItem.length) {
+            //     gsap.to(currItem, {
+            //         yPercent: -50, // 애니메이션을 위해 이동
+            //         onComplete: () => {
+            //             currItem.removeClass('show'); // 애니메이션 완료 후 클래스 제거
+            //         }
+            //     });
+            // }
+
+
+
+            // // if (newItem) { newItem.addClass("show"); }
+            // if (newItem) {
+            //     gsap.to(newItem, {
+            //         transform: 'translateY(0%)',
+            //         onComplete: () => {
+            //             newItem.addClass('show'); // 애니메이션 완료 후 클래스 제거
+            //         }
+            //     });
+            // }
+
+
             if (currItem) { currItem.removeClass('show'); }
             if (newItem) { newItem.addClass("show"); }
-
             if (currItem2) { currItem2.removeClass('on'); }
             if (newItem2) { newItem2.addClass("on"); }
 
@@ -183,10 +210,10 @@ $(function () {
     ScrollTrigger.create({
         trigger: `[data-theme="beige"]`,
         start: "0% 50%",
-        end: "100% 50%",
-        // markers:true,
+        end: "200% 100%",
+        // markers: true,
         toggleClass: {
-            targets: "body",
+            targets: "#main",
             className: "beige",
         },
     })
@@ -194,14 +221,14 @@ $(function () {
     gsap.from('.sc-chargers .title .line', {
         scrollTrigger: {
             trigger: '.sc-chargers',
-            start: '0% 50%',
+            start: '0% 30%',
             end: '100% 100%',
-            markers: true
+            // markers: true
         },
-        stagger: 0.3,
+        // stagger: 0.3,
         opacity: 0,
-        duration: 1.5,
-        delay: 0.5,
+        duration: 1,
+        // delay: 0.5,
         yPercent: 100,
     })
 
@@ -232,49 +259,26 @@ $(function () {
     });
 
 
-    /** mouse cursor */
 
 
-    const customCursor = document.querySelector('.custom-cursor');
+    /** sc-chargers mouse cursor */
 
-
-    gsap.set(customCursor, { scale: 3, autoAlpha: 0 })
-    $('.sc-chargers').hover(function () {
-        gsap.to(customCursor, { scale: 1, autoAlpha: 1 })
-    }, function () {
-        gsap.to(customCursor, { scale: 3, autoAlpha: 0 })
-    })
-
-    $(window).mousemove(function (e) {
-        gsap.to(customCursor, {
-            x: e.clientX + 100,
-            y: e.clientY + 100
+    const scChargers = document.querySelector('.sc-chargers');
+    const projectCursor = $('.custom-cursor [data-target="cursor"]');
+    gsap.set(projectCursor, { scale: 5, autoAlpha: 0 })
+    $(scChargers).mousemove(function (e) {
+        $('.sc-chargers .custom-cursor').addClass('on');
+        gsap.to(projectCursor, {
+            autoAlpha: 1,
+            scale: 1,
+            x: (e.clientX + 100) + 'px',
+            y: (e.clientY + 100) + 'px'
         })
-        //     customCursor.style.top = `${e.clientY + 100}px`;
     })
-
-
-    // const customCursor = document.querySelector('.custom-cursor');
-    // const targetSection = document.querySelector('.sc-chargers');
-    // targetSection.addEventListener('mouseenter', () => {
-    //     gsap.from(customCursor, {
-    //         scale:3,
-    //         duration: 0.3 // 애니메이션 지속 시간
-    //     });
-    // });
-    // targetSection.addEventListener('mouseleave', () => {
-    //     gsap.to(customCursor, {
-    //         width: "20px",
-    //         height: "20px",
-    //         // backgroundColor: "transparent", // 배경색을 투명으로 변경
-    //         duration: 0.3 // 애니메이션 지속 시간
-    //     });
-    // });
-    // window.addEventListener('mousemove', (e) => {
-    //     customCursor.style.left = `${e.clientX + 100}px`;
-    //     customCursor.style.top = `${e.clientY + 100}px`;
-    // });
-
+    $(scChargers).mouseleave(function () {
+        $('.sc-chargers .custom-cursor').removeClass('on');
+        gsap.to(projectCursor, { scale: 5, autoAlpha: 0 })
+    })
 
 
 
@@ -336,11 +340,11 @@ $(function () {
     /** section 06 sc-journey */
     ScrollTrigger.create({
         trigger: `[data-theme="black"]`,
-        start: "0% 50%",
-        end: "100% 100%",
-        // markers:true,
+        start: "0% 30%",
+        end: "100% 0%",
+        markers: true,
         toggleClass: {
-            targets: "body",
+            targets: "#main",
             className: "black",
         },
     })
@@ -370,4 +374,11 @@ $(function () {
     asdas.to('.sc-journey .img-wrapper img.img03', { yPercent: -200 }, 'a')
     asdas.to('.sc-journey .img-wrapper img.img04', { yPercent: -300 }, 'a')
     asdas.to('.sc-journey .img-wrapper img.img05', { yPercent: -300 }, 'a')
+
+    // footer country
+    $('#footer .btn-country').click(function (e) {
+        e.preventDefault();
+        $(this).siblings('').stop().slideToggle()
+
+    });
 }); /** end */

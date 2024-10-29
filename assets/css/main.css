@@ -72,21 +72,23 @@
     align-self: flex-end;
 }
 
-.sc-visual .title-group .btn-scroll .before svg {
-    opacity: 0;
-    visibility: hidden;
+.sc-visual .title-group .btn-scroll .icon {
+    height: 25px;
+    width: 25px;
+    border-radius: 9999px;
+    border: 1px solid #fff;
+    overflow: hidden;
 }
 
 .sc-visual .title-group .btn-scroll svg {
     stroke: #fff;
-    height: 30px;
-    width: 30px;
+    width: 100%;
+    height: 100%;
+
 }
 
-.sc-journey .btn-scale {
-    position: relative;
-    font-size: 18px;
-    gap: 16px;
+.sc-visual .title-group .btn-scroll:hover svg {
+    animation: slideDownUp 2s ease infinite;
 }
 
 
@@ -167,6 +169,11 @@
 
 .sc-charging .charging-area {
     position: relative;
+    margin-left: 8vw;
+}
+
+.sc-charging .charging-area .btn-get.blend {
+    margin-top: 50px;
 }
 
 .sc-charging .charging-group {
@@ -174,7 +181,10 @@
     top: 0;
     left: 0;
     opacity: 0;
-    visibility: hidden
+    visibility: hidden;
+    transform: translateY(50%);
+    transition: transform 1s, opacity 0.4s;
+    background: #fff;
 }
 
 .sc-charging .charging-group.show {
@@ -186,6 +196,7 @@
     opacity: 1;
     justify-content: center;
     visibility: visible;
+    transform: translateY(0);
 }
 
 
@@ -237,8 +248,12 @@
     grid-row-end: 3;
 }
 
+.sc-charging .wrap .list li {
+    color: #767572
+}
+
 .sc-charging .wrap .list li.on {
-    background: #f00;
+    color: #000
 }
 
 .sc-charging .wrap .img-area {
@@ -265,7 +280,6 @@
     grid-row: span 3 / span 3;
     width: 600px;
     display: flex;
-    border: 10px solid #000;
 }
 
 .sc-charging .charging-group .small-txt {
@@ -314,7 +328,9 @@
 }
 
 .sc-chargers {
-    padding: 170px 0 185px 0;
+    position: relative;
+    overflow: hidden;
+    margin: 300px 0 185px 0;
 }
 
 .sc-chargers .title {
@@ -323,6 +339,7 @@
     color: #19312f;
     font-size: 150px;
     text-align: center;
+    line-height: 1.1;
 
 }
 
@@ -351,10 +368,23 @@
     color: #767572
 }
 
+.sc-chargers .btn-wrap {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.sc-chargers .btn-wrap .btn-scale .icon {
+    background: #000;
+}
+
+.sc-chargers .btn-wrap .btn-scale .icon svg {
+    stroke: #fff;
+}
+
 /* Charder Swiper */
 .sc-chargers .chargers-area {
     width: 100%;
-    height: 740px;
+    height: 710px;
 }
 
 .swiper-container {
@@ -367,6 +397,12 @@
     opacity: 0;
     transition: opacity 0.3s ease;
     /* 전환 애니메이션 */
+}
+
+.chargers-area .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* 활성화된 슬라이드만 opacity를 1로 설정 */
@@ -397,7 +433,7 @@
     opacity: 1;
     display: flex;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
 }
 
 .sc-chargers .chargers-area .swiper-pagination-bullet .bullet-bg {
@@ -502,7 +538,7 @@
 
 .sc-chargers .chargers-area .bullet-list {
     position: absolute;
-    left: 0;
+    left: 5px;
     right: auto;
     z-index: 1;
 
@@ -514,6 +550,7 @@
 }
 
 .sc-hub {
+    margin-top: 170px;
     margin-bottom: 170px;
     display: flex;
     flex-direction: column;
@@ -545,8 +582,11 @@
 
 .sc-hub .card-list .card {
     display: flex;
+    position: relative;
     flex-direction: column;
     overflow: hidden;
+    align-self: flex-start;
+    padding-bottom: 20px;
 }
 
 .sc-hub .img.card-list .card:first-child {
@@ -557,6 +597,7 @@
     transform: scaleX(1.1) scaleY(1.1);
 
 }
+
 
 .sc-hub .card-list .card .img-box {
     overflow: hidden;
@@ -620,61 +661,17 @@
     padding-top: 16px;
 }
 
-.sc-hub .btn-scale {
-    position: relative;
-    font-size: 18px;
-    gap: 16px;
-    align-self: flex-end;
-    margin-top: 50px;
-}
-
-.sc-hub .btn-scale:after {
-    position: absolute;
-    top: 100%;
-    margin-top: .25rem;
-    height: 1px;
-    width: 100%;
-    border-radius: 9999px;
-    --tw-bg-opacity: 1;
-    background-color: rgb(218 218 218);
-    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
-    transition-duration: .3s;
-    content: "";
-}
-
-.sc-hub .btn-scale:hover:after {
-    background-color: #222;
-}
-
 .sc-hub .btn-scale .icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 12px;
-    height: 12px;
-    transition: all 0.3s;
+    background: transparent;
 }
 
-.sc-hub .btn-scale .icon:first-child {
-    transform: scale(0);
-    margin-left: -28px;
-}
-
-.sc-hub .btn-scale:hover .icon:first-child {
-    transform: scale(1);
-    margin-left: 0rem;
-
-}
-
-.sc-hub .btn-scale svg {
-    stroke: #000;
-    width: 100%;
+.sc-hub .footer {
+    align-self: flex-end;
 }
 
 .sc-journey {
     position: relative;
-    height: 400vh;
+    height: 500vh;
     --opacity: 0;
     color: #fff
 }
@@ -766,37 +763,78 @@
     bottom: 217.586px;
 }
 
-.sc-journey .btn-scale {
-    position: relative;
-    font-size: 18px;
-    gap: 16px;
+
+
+
+
+@keyframes slideInOut {
+    0% {
+        transform: translateX(0)
+    }
+
+    50% {
+        transform: translateX(2rem)
+    }
+
+    50.001% {
+        transform: translateX(-2rem)
+    }
+
+    75% {
+        transform: translateX(0)
+    }
 }
 
+@keyframes slideUpDown {
+    0% {
+        transform: translateY(0)
+    }
 
+    50% {
+        transform: translateY(-2rem)
+    }
 
-.sc-journey .btn-scale .icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    background: #fff;
-    border-radius: 50%;
-    transition: all 0.3s;
+    50.001% {
+        transform: translateY(2rem)
+    }
+
+    75% {
+        transform: translateY(0)
+    }
 }
 
-.sc-journey .btn-scale .icon:first-child {
-    transform: scale(0);
-    margin-left: -40px;
+@keyframes slideDownUp {
+    0% {
+        transform: translateY(0)
+    }
+
+    50% {
+        transform: translateY(2rem)
+    }
+
+    50.001% {
+        transform: translateY(-2rem)
+    }
+
+    75% {
+        transform: translateY(0)
+    }
 }
 
-.sc-journey .btn-scale:hover .icon:first-child {
-    transform: scale(1);
-    margin-left: 0rem;
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg)
+    }
 
-}
+    50% {
+        transform: rotate(1turn)
+    }
 
-.sc-journey .btn-scale svg {
-    stroke: #000;
-    width: 12px;
+    50.001% {
+        transform: rotate(1turn)
+    }
+
+    to {
+        transform: rotate(1turn)
+    }
 }
