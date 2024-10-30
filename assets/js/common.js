@@ -89,7 +89,10 @@ $(function () {
     visualVideoTl.to('.sc-visual .video-group video', {
         yPercent: -20
     }, 'a')
-
+    $('.sc-visual .btn-scroll').click(function (e) {
+        e.preventDefault();
+        lenis.scrollTo('.sc-module')
+    });
 
     //
     const moduleTxt = new SplitType('.module-title .line', { types: 'words, chars', });
@@ -218,7 +221,7 @@ $(function () {
         trigger: `[data-theme="beige"]`,
         start: "0% 90%",
         end: "200% 100%",
-        markers: true,
+        // markers: true,
         toggleClass: {
             targets: "#main",
             className: "beige",
@@ -230,7 +233,7 @@ $(function () {
             trigger: '.sc-chargers',
             start: '0% 90%',
             end: '100% 100%',
-            markers: true
+            // markers: true
         },
         // stagger: 0.3,
         opacity: 0,

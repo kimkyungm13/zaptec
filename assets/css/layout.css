@@ -316,6 +316,12 @@
     background: #fff;
 }
 
+#header .menu-wrapper .btn-wrap .btn-more:hover .line:nth-child(4) {
+    transform-origin: right;
+    bottom: 50%;
+    transform: rotate(-45deg) scaleX(0.5) scaleY(1)
+}
+
 #header .btn-wrap .btn-more .line:nth-child(3) {
     top: 50%;
     transform: translateY(-50%);
@@ -325,11 +331,7 @@
     bottom: 0;
 }
 
-#header .menu-wrapper:hover .btn-wrap .btn-more .line:nth-child(4) {
-    transform-origin: right;
-    bottom: 50%;
-    transform: rotate(-45deg) scaleX(0.5) scaleY(1)
-}
+
 
 #header #nav .menu-item {
     color: #fff;
