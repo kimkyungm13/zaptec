@@ -181,7 +181,7 @@
     height: 100%;
     overflow: hidden;
     position: absolute;
-    top: 160px;
+    top: 0px;
     left: 0;
 }
 
@@ -263,6 +263,7 @@
 }
 
 .sc-charging .wrap .img-area {
+    display: grid;
     grid-row-start: 1;
     grid-row: span 3 / span 3;
     grid-column-end: 11;
@@ -272,7 +273,6 @@
 
 .sc-charging .wrap .img-area img {
     width: 807px;
-    height: 746px;
     object-fit: cover;
 }
 

@@ -43,6 +43,14 @@
     color: #fff;
 }
 
+#header.show .menu-wrapper .menu-list {
+    z-index: 10;
+}
+
+/* #header.show .menu-wrapper .menu-list #nav {
+    display: none;
+} */
+
 #header .menu-wrapper .menu-list {
     align-items: center;
     display: flex;
@@ -61,6 +69,10 @@
 
 #header.show .logo svg {
     fill: #000;
+}
+
+#header #nav.none {
+    display: none;
 }
 
 #header #nav .menu-wrap {
@@ -193,21 +205,34 @@
     z-index: 3;
 }
 
-#header .btn-wrap .btn-search {}
+#header .btn-wrap .btn-search {
+    width: 44px;
+    overflow: hidden;
+    height: 44px;
+    background: #ffffff42;
+    border-radius: 9999px;
+    /* padding: 0 14px; */
+    transition: width 0.5s
+}
+
+#header .btn-wrap .btn-search.on {
+    width: 316px;
+}
 
 #header .btn-wrap .btn-search form {
-    /* width: 44px; */
+    width: 316px;
     height: 44px;
-    background-color: #ffffff1a;
-    border-radius: 9999px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 22px 5px 22px 16px;
-    gap: 10px;
+    justify-content: flex-start;
+    gap: 12px;
+    /* padding: 0 0px; */
+    padding-left: 15px;
 }
 
 #header .btn-wrap .btn-search form svg {
+    width: 16px;
+    height: 16px;
     stroke: #fff
 }
 
@@ -261,14 +286,14 @@
 }
 
 
-#header .menu-wrapper:hover .btn-wrap .btn-more .line:nth-child(2) {
+#header .menu-wrapper .btn-wrap .btn-more:hover .line:nth-child(2) {
     transform-origin: right;
     top: 50%;
     transform: rotate(45deg) scaleX(0.5) scaleY(1)
 }
 
 
-#header.show .menu-wrapper:hover .btn-wrap .btn-more .line:nth-child(2),
+#header.show .menu-wrapper .btn-wrap .btn-more:hover .line:nth-child(2),
 #header.show .btn-wrap .btn-more .line:nth-child(2) {
     transform: translateY(-50%) rotate(45deg) scale(1);
     top: 50%;
@@ -279,14 +304,14 @@
     height: 0;
 }
 
-#header.show .menu-wrapper:hover .btn-wrap .btn-more .line:nth-child(4),
+#header.show .menu-wrapper .btn-wrap .btn-more:hover .line:nth-child(4),
 #header.show .btn-wrap .btn-more .line:nth-child(4) {
     transform-origin: inherit;
     transform: translateY(-50%) rotate(-45deg) scaleX(1) scaleY(1);
     top: 50%;
 }
 
-#header.show .menu-wrapper:hover .btn-wrap .btn-more .line,
+#header.show .menu-wrapper .btn-wrap .btn-more:hover .line,
 #header.show .btn-wrap .btn-more .line {
     background: #fff;
 }

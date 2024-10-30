@@ -19,7 +19,7 @@ $(function () {
         $('menu-left').toggleClass('auto')
         $(this).toggleClass('close');
         $('header').toggleClass('show')
-
+        $('#nav').toggleClass('none')
         if ($(this).hasClass('close')) {
             lenis.stop();
         } else {
@@ -32,6 +32,10 @@ $(function () {
         $(this).find('.category-wrap').toggleClass('on').stop().slideToggle()
 
     });
+    $('.search-wrap').click(function (e) {
+        e.preventDefault();
+        $(this).find('.btn-search').toggleClass('on');
+    })
     /** 메뉴 스크롤 */
     let lastScroll = 0;
     $(window).scroll(function () {
@@ -151,7 +155,7 @@ $(function () {
             if (currItem) {
                 gsap.to(currItem, {
                     autoAlpha: 0,
-                    transform: 'translateY(-50%)'
+                    transform: 'translateY(30%)'
                 });
                 gsap.to(newItem, {
                     autoAlpha: 1,
@@ -212,9 +216,9 @@ $(function () {
     /** section 04 sc-chargers */
     ScrollTrigger.create({
         trigger: `[data-theme="beige"]`,
-        start: "0% 50%",
+        start: "0% 90%",
         end: "200% 100%",
-        // markers: true,
+        markers: true,
         toggleClass: {
             targets: "#main",
             className: "beige",
@@ -224,9 +228,9 @@ $(function () {
     gsap.from('.sc-chargers .title .line', {
         scrollTrigger: {
             trigger: '.sc-chargers',
-            start: '0% 30%',
+            start: '0% 90%',
             end: '100% 100%',
-            // markers: true
+            markers: true
         },
         // stagger: 0.3,
         opacity: 0,
@@ -260,7 +264,18 @@ $(function () {
         observer: true,
         observeParents: true,
     });
-
+    $('[data-parallax="true"]').each(function (i, el) {
+        gsap.to($(this).find('img'), {
+            scrollTrigger: {
+                trigger: $(this),
+                start: "0% 100%",
+                end: "100% 0%",
+                scrub: 0,
+                // markers: true,
+            },
+            yPercent: -20
+        })
+    })
 
 
 
@@ -345,7 +360,7 @@ $(function () {
         trigger: `[data-theme="black"]`,
         start: "0% 30%",
         end: "100% 0%",
-        markers: true,
+        // markers: true,
         toggleClass: {
             targets: "#main",
             className: "black",
@@ -384,4 +399,10 @@ $(function () {
         $(this).siblings('').stop().slideToggle()
 
     });
+
+
+    $('#footer .bt-top').click(function (e) {
+        e.preventDefault();
+        lenis.scrollTo('html, body')
+    })
 }); /** end */

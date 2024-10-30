@@ -148,18 +148,19 @@
                     </nav>
                 </div>
                 <div class="btn-wrap">
-                    <div class="btn-search">
-                        <form>
-                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="search-icon flex-shrink-0 stroke-grey transition-colors duration-300">
-                                <path
-                                    d="M13 13.2109L9.5 9.71094M11 6.21094C11 8.97236 8.76142 11.2109 6 11.2109C3.23858 11.2109 1 8.97236 1 6.21094C1 3.44951 3.23858 1.21094 6 1.21094C8.76142 1.21094 11 3.44951 11 6.21094Z">
-                                </path>
-                            </svg>
-                            <input type="text" placeholder="Search for...">
-                            <button type="submit">Search</button>
-                        </form>
+                    <div class="search-wrap">
+                        <div class="btn-search">
+                            <form>
+                                <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                    class="search-icon flex-shrink-0 stroke-grey transition-colors duration-300">
+                                    <path
+                                        d="M13 13.2109L9.5 9.71094M11 6.21094C11 8.97236 8.76142 11.2109 6 11.2109C3.23858 11.2109 1 8.97236 1 6.21094C1 3.44951 3.23858 1.21094 6 1.21094C8.76142 1.21094 11 3.44951 11 6.21094Z">
+                                    </path>
+                                </svg>
+                                <input type="text" placeholder="Search for..." value>
+                                <button type="submit">Search</button>
+                            </form>
+                        </div>
                     </div>
                     <button class="btn-get">
                         <span class="txt">Get Zaptec</span>
@@ -334,8 +335,9 @@
                             </div>
                         </div>
                         <div class="img-area">
-                            <img src="./assets/images/fhome.png" alt class="img01">
-                            <img src="./assets/images/charging.jpeg" alt class="img02">
+                            <div data-parallax="true"><img src="./assets/images/fhome.png" alt class="img01"></div>
+                            <div data-parallax="true"><img src="./assets/images/charging.jpeg" alt class="img02">
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -710,7 +712,7 @@
                                 <a href="">YouTube</a>
                             </li>
                         </ul>
-                        <button type="button" class="btn-scale">
+                        <button type="button" class="btn-scale bt-top">
                             Back to top
                             <span class="icon">
                                 <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"
